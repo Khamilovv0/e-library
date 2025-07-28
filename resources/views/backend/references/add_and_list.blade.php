@@ -1,0 +1,71 @@
+@extends('backend.layouts.app')
+
+@section('content')
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Добавить автора</h3>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('add') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="name">ФИО автора</label>
+                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
+                    @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary">Добавить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header">
+            <h3 class="card-title">Список авторов</h3>
+        </div>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th width="10%">ID</th>
+                    <th width="55%">Имя</th>
+                    <th width="35%">Управление</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($lists as $list)
+                    <tr id="list-{{ $list->id }}">
+                        <td>{{ $list->id }}</td>
+                        <td>{{ $list->name }}</td>
+                        <td>
+                            <button type="button"
+                                    class="btn btn-sm btn-info"
+                                    data-toggle="modal"
+                                    data-target="#editModal"
+                                    data-id="{{ $list->id }}"
+                                    data-name="{{ $list->name }}">
+                                Редактировать
+                            </button>
+                            <form action="{{ route('delete', $list->id) }}" method="POST" style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Удалить автора?')">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Управление</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+@endsection
