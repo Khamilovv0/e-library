@@ -3,13 +3,13 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Добавить автора</h3>
+            <h3 class="card-title">Добавить языки</h3>
         </div>
         <div class="card-body">
-            <form action="{{ route('add') }}" method="POST">
+            <form action="{{ route('add_language') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="name">ФИО автора</label>
+                    <label for="name">Язык</label>
                     <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
                     @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -24,34 +24,33 @@
 
     <div class="card mt-4">
         <div class="card-header">
-            <h3 class="card-title">Список авторов</h3>
+            <h3 class="card-title">Список языков</h3>
         </div>
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th width="10%">ID</th>
-                    <th width="55%">Имя</th>
+                    <th width="10%">№</th>
+                    <th width="55%">Язык</th>
                     <th width="35%">Управление</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($lists as $list)
+                @foreach($lists as $index => $list)
                     <tr id="list-{{ $list->id }}">
-                        <td>{{ $list->id }}</td>
+                        <td>{{ $index + 1 }}</td> <!-- Порядковый номер -->
                         <td>{{ $list->name }}</td>
                         <td>
-                            <button type="button"
+                            {{--<button type="button"
                                     class="btn btn-sm btn-info"
                                     data-toggle="modal"
                                     data-target="#editModal"
                                     data-id="{{ $list->id }}"
                                     data-name="{{ $list->name }}">
                                 Редактировать
-                            </button>
-                            <form action="{{ route('delete', $list->id) }}" method="POST" style="display:inline-block;">
+                            </button>--}}
+                            <form action="{{ route('delete_language', $list->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
-                                @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Удалить автора?')">Удалить</button>
                             </form>
                         </td>
@@ -60,8 +59,8 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
-                    <th>Имя</th>
+                    <th>№</th>
+                    <th>Язык</th>
                     <th>Управление</th>
                 </tr>
                 </tfoot>

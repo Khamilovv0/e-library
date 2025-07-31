@@ -24,31 +24,31 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('place')}}" class="nav-link">
                     <i class="bi bi-buildings-fill"></i>
                     <p>Место издания (город)</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('publishing')}}" class="nav-link">
                     <i class="bi bi-book"></i>
                     <p>Издательство</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('literature')}}" class="nav-link">
                     <i class="bi bi-badge-ar"></i>
                     <p>Вид литературы</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('edition')}}" class="nav-link">
                     <i class="bi bi-pen"></i>
                     <p>Вид издания</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('language')}}" class="nav-link">
                     <i class="bi bi-translate"></i>
                     <p>Язык текста</p>
                 </a>
