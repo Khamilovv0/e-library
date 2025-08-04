@@ -26,12 +26,26 @@ class ReferenceController extends Controller
 
     public function add(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
+        $firstname = $request->input('firstname'); // Имя
+        $lastname = $request->input('lastname');   // Фамилия
+        $patronymic = $request->input('patronymic');
 
         $author = new Author();
-        $author->name = $request->input('name');
+        $author->firstname = $firstname;
+        $author->lastname = $lastname;
+        $author->patronymic = $patronymic;
+
+        $short = $lastname;
+        if (!empty($firstname)) {
+            $short .= ' ' . mb_substr($firstname, 0, 1, 'UTF-8') . '.';
+        }
+
+        if (!empty($patronymic)) {
+            $short .= mb_substr($patronymic, 0, 1, 'UTF-8') . '.';
+        }
+
+        $author->short_name = $short;
+
         $author->save();
 
         // Возвращаем данные нового автора в формате JSON

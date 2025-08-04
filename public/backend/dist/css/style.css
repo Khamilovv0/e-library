@@ -7,7 +7,6 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #0f172a;
-    overflow: hidden;
     position: relative;
 }
 
@@ -72,13 +71,6 @@ body {
     color: #64748b;
     margin-bottom: 2rem;
     font-weight: 500;
-}
-
-.form-control {
-    border-radius: 8px;
-    padding: 12px 15px;
-    border: 1px solid #e2e8f0;
-    transition: all 0.3s ease;
 }
 
 .form-control:focus {
@@ -202,3 +194,4 @@ i:not(.right-icon) {
     color: #fff !important;
     transform: scale(1.1);
 }
+

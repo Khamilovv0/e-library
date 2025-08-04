@@ -25,6 +25,8 @@
     <!-- End Toaster and Sweet Alert-->
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('backend/dist/css/adminlte.min.css')}}">
+    <!-- Подключение стилей Summernote -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -103,5 +105,8 @@
     <script src="{{ asset('backend/js/sweetalert.min.js') }}"></script>
     <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
     <!-- End  Sweet Alert and Toaster notifications -->
+    <!-- Подключение скриптов Summernote -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <!-- Select2 JS -->
 </body>
 </html>

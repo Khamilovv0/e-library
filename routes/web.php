@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\ReferenceController;
+use App\Http\Controllers\Admin\{ReferenceController, BookController};
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -15,6 +15,9 @@ Auth::routes();
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/authenticateViaToken', [LoginController::class, 'authenticateViaToken'])->name('authenticateViaToken');
     Route::get('/saveToken', [LoginController::class, 'saveToken'])->name('saveToken');
+
+    /*Books*/
+    Route::get('/book_add', [BookController::class, 'book_add'])->name('book_add');
 
     /*References*/
     /*Author*/

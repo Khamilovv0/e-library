@@ -2,7 +2,13 @@
     <li class="nav-item">
         <a href="/" class="nav-link">
             <i class="bi bi-house-fill"></i>
-            <p>{{ __('Главная страница') }}</p>
+            <p>Главная страница</p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{route('book_add')}}" class="nav-link">
+            <i class="bi bi-plus-circle-fill"></i>
+            <p>Добавление книг</p>
         </a>
     </li>
     <li class="nav-item">
@@ -16,7 +22,7 @@
             <p>Справочники</p>
             <i class="bi bi-caret-right-fill right-icon"></i>
         </a>
-        <ul class="nav nav-treeview collapse" id="spravochniki">
+        <ul style="margin-left: 15px;" class="nav nav-treeview collapse" id="spravochniki">
             <li class="nav-item">
                 <a href="{{route('author')}}" class="nav-link">
                     <i class="bi bi-person-circle"></i>

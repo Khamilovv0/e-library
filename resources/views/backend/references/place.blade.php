@@ -9,7 +9,7 @@
             <form action="{{ route('add_place') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="name">ФИО автора</label>
+                    <label for="name">Место издания</label>
                     <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
                     @error('name')
                     <span class="invalid-feedback" role="alert">

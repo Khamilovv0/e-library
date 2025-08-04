@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#tutor, #auditory, #head, #recordSelect, #building' ).select2({
+    $('select' ).select2({
         width: '100%', // Делает поле поиска адаптивным
         minimumResultsForSearch: 0
     });
@@ -49,6 +49,25 @@ $(function () {
         },
     });
 
+});
+
+$(document).ready(function() {
+    $('.select2-multiple').select2({
+        placeholder: "Выберите авторов", // Подсказка
+        allowClear: true, // Кнопка очистки
+        width: '100%', // Ширина на 100%
+        closeOnSelect: false // Не закрывать после выбора
+    });
+});
+
+$(document).ready(function() {
+    // Инициализация Summernote
+    $('#summernote').summernote({
+        height: 194, // Высота редактора
+        minHeight: null, // Минимальная высота
+        maxHeight: null, // Максимальная высота
+        focus: false // Установить фокус на редакторе
+    });
 });
 
 function readURL(input) {

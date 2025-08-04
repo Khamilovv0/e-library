@@ -9,7 +9,7 @@
             <form action="{{ route('add_literature') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Литература</label>
+                    <label for="name">Вид литературы</label>
                     <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
                     @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                 <thead>
                 <tr>
                     <th width="10%">№</th>
-                    <th width="55%">Литература</th>
+                    <th width="55%">Вид литературы</th>
                     <th width="35%">Управление</th>
                 </tr>
                 </thead>
@@ -60,7 +60,7 @@
                 <tfoot>
                 <tr>
                     <th>№</th>
-                    <th>Литература</th>
+                    <th>Вид литературы</th>
                     <th>Управление</th>
                 </tr>
                 </tfoot>
