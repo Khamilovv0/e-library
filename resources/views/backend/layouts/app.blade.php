@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{asset('backend/dist/css/adminlte.min.css')}}">
     <!-- Подключение стилей Summernote -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -108,5 +110,6 @@
     <!-- Подключение скриптов Summernote -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <!-- Select2 JS -->
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
 </body>
 </html>

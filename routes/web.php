@@ -18,6 +18,8 @@ Auth::routes();
 
     /*Books*/
     Route::get('/book_add', [BookController::class, 'book_add'])->name('book_add');
+    Route::get('/book_store', [BookController::class, 'book_store'])->name('book_store');
+    Route::get('/book_list', [BookController::class, 'book_list'])->name('book_list');
 
     /*References*/
     /*Author*/
@@ -49,5 +51,6 @@ Auth::routes();
     Route::get('/language', [ReferenceController::class, 'language'])->name('language');
     Route::post('/language', [ReferenceController::class, 'add_language'])->name('add_language');
     Route::post('/language/delete/{id}', [ReferenceController::class, 'delete_language'])->name('delete_language');
+
 
 

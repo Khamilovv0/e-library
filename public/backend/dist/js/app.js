@@ -13,7 +13,7 @@ $(function () {
         "searching": true,
         "ordering": true,
         "info": true,
-        "autoWidth": false,
+        "autoWidth": true,
         "responsive": true,
         "stateSave": true,
         "deferRender": true,
@@ -36,8 +36,18 @@ $(function () {
         "searching": true,
         "ordering": true,
         "info": true,
-        "autoWidth": false,
-        "responsive": true,
+        "autoWidth": true,
+        "responsive": true,  // Включает адаптивность
+        "scrollX": true,     // Горизонтальная прокрутка
+        "columnDefs": [
+            { responsivePriority: 1, targets: 0 }, // Приоритеты колонок
+            { responsivePriority: 2, targets: 1 },
+            // Укажите приоритеты для важных колонок
+            {
+                targets: '_all',
+                render: $.fn.dataTable.render.ellipsis(40) // Обрезание длинного текста
+            }
+        ],
         "stateSave": true,
         "deferRender": true,
         "language": {
@@ -49,6 +59,44 @@ $(function () {
         },
     });
 
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+    const fileUpload = document.getElementById('fileUpload');
+
+    // Обработчик выбора файлов
+    fileInput.addEventListener('change', displayFiles);
+
+    // Обработка события перетаскивания файлов
+    fileUpload.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        fileUpload.classList.add('dragging');
+    });
+
+    fileUpload.addEventListener('dragleave', function () {
+        fileUpload.classList.remove('dragging');
+    });
+
+    fileUpload.addEventListener('drop', function (e) {
+        e.preventDefault();
+        fileUpload.classList.remove('dragging');
+        const files = e.dataTransfer.files;
+        displayFiles({ target: { files } });
+    });
+
+    // Функция для отображения списка загруженных файлов
+    function displayFiles(event) {
+        fileList.innerHTML = ''; // Очистка списка перед добавлением новых файлов
+        const files = event.target.files;
+
+        for (const file of files) {
+            const fileItem = document.createElement('p');
+            fileItem.textContent = `Имя файла: ${file.name}, Размер: ${(file.size / 1024).toFixed(2)} KB`;
+            fileList.appendChild(fileItem);
+        }
+    }
 });
 
 $(document).ready(function() {
@@ -63,10 +111,10 @@ $(document).ready(function() {
 $(document).ready(function() {
     // Инициализация Summernote
     $('#summernote').summernote({
-        height: 194, // Высота редактора
+        height: 252, // Высота редактора
         minHeight: null, // Минимальная высота
         maxHeight: null, // Максимальная высота
-        focus: false // Установить фокус на редакторе
+        focus: true, // Установить фокус на редакторе
     });
 });
 

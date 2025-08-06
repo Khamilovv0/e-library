@@ -12,6 +12,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a href="{{route('book_list')}}" class="nav-link">
+            <i class="bi bi-database-fill"></i>
+            <p>База книг</p>
+        </a>
+    </li>
+    <li class="nav-item">
         <a href="#spravochniki"
            class="nav-link"
            data-toggle="collapse"
